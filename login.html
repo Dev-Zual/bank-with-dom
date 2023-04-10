@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login to your band</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <main></main>
+    <main>
+      <h1 class="text-4xl text-center mt-4">Welcome to your mayer bank</h1>
+      <section class="container">
+        <div class="w-2/3 mx-auto bg-gray-300 rounded-md p-6 mt-5">
+          <h1 class="text-3xl">Please Login</h1>
+          <input
+            class="my-3 rounded-full py-1 px-3 focus:border-blue-400 border-gray-500 border-2 w-1/3"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Your Email Here"
+          />
+          <br />
+          <input
+            class="rounded-full py-1 px-3 focus:border-blue-400 border-gray-500 border-2 w-1/3"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Your Password"
+          /><br />
+          <button class="px-4 py-2 bg-slate-800 mt-4 rounded text-white">
+            Login
+          </button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
