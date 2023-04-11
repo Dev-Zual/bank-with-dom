@@ -28,7 +28,11 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
   if (withdrawInput.value == "") {
     return alert("please input some value");
   }
-
+  if (typeof withdrawInput.value !== "number") {
+    alert("please input only numbers");
+    withdrawInput.value = "";
+    return;
+  }
   const newWithdrawValue = parseInt(withdrawInput.value);
   // get the balance value
   const oldBalanceText = document.getElementById("balance");
