@@ -1,7 +1,12 @@
 document.getElementById("deposit-btn").addEventListener("click", function () {
   // get the new deposit input value
   const depositInput = document.getElementById("deposit-input");
+  if (depositInput.value == "") {
+    return alert("please input some value");
+  }
+
   const newDeposit = parseInt(depositInput.value);
+
   // get the old deposit value
   const oldDepositText = document.getElementById("deposit");
   const oldDepositValue = parseInt(oldDepositText.innerText);
