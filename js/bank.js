@@ -21,8 +21,8 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
   const oldBalanceText = document.getElementById("balance");
   const oldBalanceValue = parseInt(oldBalanceText.innerText);
   // set the new value in balance
-  const newBalance = oldBalanceValue - newWithdrawValue;
-  oldBalanceText.innerText = newBalance;
+
+  oldBalanceText.innerText = oldBalanceValue - newWithdrawValue;
 
   // set the withdraw money in withdraw
   const oldWithdrawText = document.getElementById("withdraw");
