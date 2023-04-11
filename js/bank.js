@@ -1,15 +1,17 @@
 document.getElementById("deposit-btn").addEventListener("click", function () {
   // get the new deposit input value
   const depositInput = document.getElementById("deposit-input");
+  console.log(typeof depositInput.value);
+  const newDeposit = parseInt(depositInput.value);
+  console.log(typeof newDeposit);
   if (depositInput.value == "") {
     return alert("please input some value");
   }
-  if (typeof depositInput.value !== "number") {
+  if (typeof newDeposit !== "number") {
     alert("please input only numbers");
     depositInput.value = "";
     return;
   }
-  const newDeposit = parseInt(depositInput.value);
 
   // get the old deposit value
   const oldDepositText = document.getElementById("deposit");
