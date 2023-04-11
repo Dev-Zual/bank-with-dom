@@ -5,9 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inside Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <h1>Inside your mayer bank</h1>
-    <p>test</p>
+    <h1 class="text-center mt-5 text-3xl">Inside your mayer bank</h1>
+    <section class="container mx-auto">
+      <div class="grid grid-cols-3 w-2/3 mx-auto mt-9 gap-3">
+        <div class="bg-blue-300 rounded-md p-4">
+          <h2 class="text-3xl font-semibold">Deposit</h2>
+          <h1 class="text-3xl font-semibold">$ <span id="deposit">0</span></h1>
+        </div>
+        <div class="bg-blue-300 rounded-md p-4">
+          <h2 class="text-3xl font-semibold">Withdraw</h2>
+          <h1 class="text-3xl font-semibold">$ <span id="withdraw">0</span></h1>
+        </div>
+        <div class="bg-blue-300 rounded-md p-4">
+          <h2 class="text-3xl font-semibold">Balance</h2>
+          <h1 class="text-3xl font-semibold">
+            $ <span id="balance">1200</span>
+          </h1>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 w-2/3 mx-auto mt-9 gap-3">
+        <div class="bg-blue-300 rounded-md p-4">
+          <h2 class="text-3xl font-semibold">Deposit</h2>
+          <input type="text" /><br />
+          <button
+            id="deposit-btn"
+            class="bg-blue-500 px-4 py-2 rounded mt-2 font-semibold text-white"
+          >
+            Deposit
+          </button>
+        </div>
+        <div class="bg-blue-300 rounded-md p-4">
+          <h2 class="text-3xl font-semibold">Withdraw</h2>
+          <input type="text" /><br />
+          <button
+            id="withdraw-btn"
+            class="bg-blue-500 px-4 py-2 rounded mt-2 font-semibold text-white"
+          >
+            withdraw
+          </button>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
