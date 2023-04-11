@@ -4,7 +4,11 @@ document.getElementById("deposit-btn").addEventListener("click", function () {
   if (depositInput.value == "") {
     return alert("please input some value");
   }
-
+  if (typeof depositInput.value !== "number") {
+    alert("please input only numbers");
+    depositInput.value = "";
+    return;
+  }
   const newDeposit = parseInt(depositInput.value);
 
   // get the old deposit value
