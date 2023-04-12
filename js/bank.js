@@ -15,6 +15,10 @@ function setTotalValue(idToSet, oldValue, newValue) {
   const elementToSetValue = document.getElementById(idToSet);
   elementToSetValue.innerText = oldValue + newValue;
 }
+function setTotalMinusValue(idToSet, oldValue, newValue) {
+  const elementToSetValue = document.getElementById(idToSet);
+  elementToSetValue.innerText = oldValue - newValue;
+}
 
 document.getElementById("deposit-btn").addEventListener("click", function () {
   // get the new deposit input value
@@ -44,8 +48,8 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
     return;
   }
   // get the balance value
-  const oldBalanceText = document.getElementById("balance");
-  const oldBalanceValue = parseFloat(oldBalanceText.innerText);
+  // const oldBalanceText = document.getElementById("balance");
+  const oldBalanceValue = getInnerTextValue("balance");
   // set the new value in balance
 
   // check if withdraw amount is > balance amount
@@ -55,11 +59,13 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
     return;
   }
 
-  oldBalanceText.innerText = oldBalanceValue - newWithdrawValue;
+  // oldBalanceText.innerText = oldBalanceValue - newWithdrawValue;
+  setTotalMinusValue("balance", oldBalanceValue, newWithdrawValue);
 
   // set the withdraw money in withdraw
-  const oldWithdrawText = document.getElementById("withdraw");
-  const oldWithdrawValue = parseFloat(oldWithdrawText.innerText);
-  oldWithdrawText.innerText = oldWithdrawValue + newWithdrawValue;
+
+  const oldWithdrawValue = getInnerTextValue("withdraw");
+
+  setTotalValue("withdraw", oldWithdrawValue, newWithdrawValue);
   withdrawInput.value = "";
 });
