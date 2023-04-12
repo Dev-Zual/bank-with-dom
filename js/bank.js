@@ -1,7 +1,6 @@
 document.getElementById("deposit-btn").addEventListener("click", function () {
   // get the new deposit input value
-  const depositInput = document.getElementById("deposit-input");
-  const newDeposit = parseFloat(depositInput.value);
+  const newDeposit = getInputValue("deposit-input");
 
   if (isNaN(newDeposit)) {
     alert("please provide a valid number");
@@ -14,7 +13,7 @@ document.getElementById("deposit-btn").addEventListener("click", function () {
   const oldDepositValue = parseFloat(oldDepositText.innerText);
 
   oldDepositText.innerText = oldDepositValue + newDeposit;
-  depositInput.value = "";
+
   // add the deposit money in balance
   const oldBalanceText = document.getElementById("balance");
   const oldBalanceValue = parseFloat(oldBalanceText.innerText);
@@ -49,3 +48,10 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
   oldWithdrawText.innerText = oldWithdrawValue + newWithdrawValue;
   withdrawInput.value = "";
 });
+
+function getInputValue(id) {
+  const inputField = document.getElementById(id);
+  const inputValue = parseFloat(inputField.value);
+  inputField.value = "";
+  return inputValue;
+}
