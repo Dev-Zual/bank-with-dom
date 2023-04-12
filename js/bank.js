@@ -27,20 +27,23 @@ document.getElementById("deposit-btn").addEventListener("click", function () {
 document.getElementById("withdraw-btn").addEventListener("click", function () {
   // get the withdraw input value
   const withdrawInput = document.getElementById("withdraw-input");
-  if (withdrawInput.value == "") {
-    return alert("please input some value");
-  }
-  /*  if (typeof withdrawInput.value !== "number") {
-    alert("please input only numbers");
+  const newWithdrawValue = parseFloat(withdrawInput.value);
+  if (isNaN(newWithdrawValue)) {
+    alert("please provide a valid number");
     withdrawInput.value = "";
     return;
-  } */
-
-  const newWithdrawValue = parseFloat(withdrawInput.value);
+  }
   // get the balance value
   const oldBalanceText = document.getElementById("balance");
   const oldBalanceValue = parseFloat(oldBalanceText.innerText);
   // set the new value in balance
+
+  // check if withdraw amount is > balance amount
+  if (newWithdrawValue > oldBalanceValue) {
+    alert("mayer bank a ato tk nai!!!");
+    withdrawInput.value = "";
+    return;
+  }
 
   oldBalanceText.innerText = oldBalanceValue - newWithdrawValue;
 
