@@ -1,3 +1,16 @@
+function getInputValue(id) {
+  const inputField = document.getElementById(id);
+  const inputValue = parseFloat(inputField.value);
+  inputField.value = "";
+  return inputValue;
+}
+
+function getInnerTextValue(id) {
+  const oldInnerText = document.getElementById(id);
+  const oldInnerTextValue = parseFloat(oldInnerText.innerText);
+  return oldInnerTextValue;
+}
+
 document.getElementById("deposit-btn").addEventListener("click", function () {
   // get the new deposit input value
   const newDeposit = getInputValue("deposit-input");
@@ -9,20 +22,20 @@ document.getElementById("deposit-btn").addEventListener("click", function () {
   }
 
   // get the old deposit value
-  const oldDepositText = document.getElementById("deposit");
-  const oldDepositValue = parseFloat(oldDepositText.innerText);
+  const oldDepositValue = getInnerTextValue("deposit");
 
+  const oldDepositText = document.getElementById("deposit");
   oldDepositText.innerText = oldDepositValue + newDeposit;
 
   // add the deposit money in balance
+  const oldBalanceValue = getInnerTextValue("balance");
+
   const oldBalanceText = document.getElementById("balance");
-  const oldBalanceValue = parseFloat(oldBalanceText.innerText);
   oldBalanceText.innerText = oldBalanceValue + newDeposit;
 });
 document.getElementById("withdraw-btn").addEventListener("click", function () {
   // get the withdraw input value
-  const withdrawInput = document.getElementById("withdraw-input");
-  const newWithdrawValue = parseFloat(withdrawInput.value);
+  const newWithdrawValue = getInputValue("withdraw-input");
   if (isNaN(newWithdrawValue)) {
     alert("please provide a valid number");
     withdrawInput.value = "";
@@ -48,10 +61,3 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
   oldWithdrawText.innerText = oldWithdrawValue + newWithdrawValue;
   withdrawInput.value = "";
 });
-
-function getInputValue(id) {
-  const inputField = document.getElementById(id);
-  const inputValue = parseFloat(inputField.value);
-  inputField.value = "";
-  return inputValue;
-}
