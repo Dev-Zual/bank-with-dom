@@ -11,13 +11,9 @@ function getInnerTextValue(id) {
   return oldInnerTextValue;
 }
 
-function setTotalValue(idToSet, oldValue, newValue) {
+function setTotalValue(idToSet, newValue) {
   const elementToSetValue = document.getElementById(idToSet);
-  elementToSetValue.innerText = oldValue + newValue;
-}
-function setTotalMinusValue(idToSet, oldValue, newValue) {
-  const elementToSetValue = document.getElementById(idToSet);
-  elementToSetValue.innerText = oldValue - newValue;
+  elementToSetValue.innerText = newValue;
 }
 
 document.getElementById("deposit-btn").addEventListener("click", function () {
@@ -33,11 +29,12 @@ document.getElementById("deposit-btn").addEventListener("click", function () {
   // get the old deposit value
   const oldDepositValue = getInnerTextValue("deposit");
 
-  setTotalValue("deposit", oldDepositValue, newDeposit);
+  const totalDepositValue = oldDepositValue + newDeposit;
+  setTotalValue("deposit", totalDepositValue);
   // add the deposit money in balance
   const oldBalanceValue = getInnerTextValue("balance");
-
-  setTotalValue("balance", oldBalanceValue, newDeposit);
+  const newBalance = oldBalanceValue + newDeposit;
+  setTotalValue("balance", newBalance);
 });
 document.getElementById("withdraw-btn").addEventListener("click", function () {
   // get the withdraw input value
@@ -59,13 +56,12 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
     return;
   }
 
-  // oldBalanceText.innerText = oldBalanceValue - newWithdrawValue;
-  setTotalMinusValue("balance", oldBalanceValue, newWithdrawValue);
+  const newBalance = oldBalanceValue - newWithdrawValue;
+  setTotalValue("balance", newBalance);
 
   // set the withdraw money in withdraw
-
   const oldWithdrawValue = getInnerTextValue("withdraw");
-
-  setTotalValue("withdraw", oldWithdrawValue, newWithdrawValue);
+  const totalWithdraw = oldWithdrawValue + newWithdrawValue;
+  setTotalValue("withdraw", totalWithdraw);
   withdrawInput.value = "";
 });
