@@ -37,7 +37,7 @@ function getDeposit() {
   setTotalValue("balance", newBalance);
 }
 
-document.getElementById("withdraw-btn").addEventListener("click", function () {
+function getWithdraw() {
   // get the withdraw input value
   const newWithdrawValue = getInputValue("withdraw-input");
   if (isNaN(newWithdrawValue)) {
@@ -65,4 +65,4 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
   const totalWithdraw = oldWithdrawValue + newWithdrawValue;
   setTotalValue("withdraw", totalWithdraw);
   withdrawInput.value = "";
-});
+}
