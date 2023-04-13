@@ -16,7 +16,7 @@ function setTotalValue(idToSet, newValue) {
   elementToSetValue.innerText = newValue;
 }
 
-document.getElementById("deposit-btn").addEventListener("click", function () {
+function getDeposit() {
   // get the new deposit input value
   const newDeposit = getInputValue("deposit-input");
 
@@ -35,7 +35,8 @@ document.getElementById("deposit-btn").addEventListener("click", function () {
   const oldBalanceValue = getInnerTextValue("balance");
   const newBalance = oldBalanceValue + newDeposit;
   setTotalValue("balance", newBalance);
-});
+}
+
 document.getElementById("withdraw-btn").addEventListener("click", function () {
   // get the withdraw input value
   const newWithdrawValue = getInputValue("withdraw-input");
